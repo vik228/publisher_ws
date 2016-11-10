@@ -7,8 +7,10 @@ var constants = require('./config/constants.js');
 function getCurrentLine() {
     var defer = q.defer();
     fs.readFile('filelist', function(err, data) {
-        if (err)
+        if (err) {
             defer.reject("Error reading line " + currentLine);
+            return;
+        }
         var lines = data.toString('utf-8').split("\n");
         if (+currentLine > lines.length) {
             return defer.reject(err);
@@ -21,7 +23,7 @@ function getCurrentLine() {
 function publishLine() {
     var lineReadPromise = getCurrentLine();
     lineReadPromise.then(function(line) {
-        console.log (line);
+        console.log(line);
         var message = {
             topic: constants.publish_topic,
             payload: line,
