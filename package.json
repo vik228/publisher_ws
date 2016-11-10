@@ -1,0 +1,15 @@
+{
+  "name": "publisher_ws",
+  "version": "1.0.0",
+  "description": "An mqtt server that publishes data to subscribers",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vikas pandey",
+  "license": "ISC",
+  "dependencies": {
+    "mosca": "^2.2.0",
+    "q": "^1.4.1"
+  }
+}
